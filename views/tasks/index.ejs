@@ -4,7 +4,7 @@
 <ul>
     <% tasks.forEach(task => { %>
         <li>
-            <strong><%= task.title %></strong> - <%= task.status %> - 
+            <strong><%= task.title %></strong> - <%= task.status %> 
             <a href="/tasks/<%= task._id %>/edit">Edit</a>
             <form action="/tasks/<%= task._id %>?_method=DELETE" method="POST" style="display: inline;">
                 <button type="submit">Delete</button>
