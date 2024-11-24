@@ -1,7 +1,31 @@
-<%- include('partials/header') %>
-<div class="container">
-    <h1>Welcome to Task Manager</h1>
-    <p>Stay organized and boost your productivity with ease.</p>
-    <a href="/tasks" class="btn">View All Tasks</a>
+<%- include('./partials/header') %>
+
+<div class="home-container">
+    <!-- Welcome Section -->
+    <div class="welcome-text">
+        <h1>Welcome to Task Manager</h1>
+        <p>Stay organized, boost productivity, and never miss a deadline!</p>
+        <a href="/tasks" class="btn btn-primary">View All Tasks</a>
+    </div>
+
+    <!-- Features Section -->
+    <div class="features-section">
+        <h2>Why Choose Task Manager?</h2>
+        <div class="features">
+            <div class="feature-card">
+                <h3>Easy to Use</h3>
+                <p>A simple and intuitive interface for managing your tasks effortlessly.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Flexible</h3>
+                <p>Tailor tasks to fit your workflow with priorities, due dates, and statuses.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Boost Productivity</h3>
+                <p>Track your progress and stay on top of your goals with ease.</p>
+            </div>
+        </div>
+    </div>
 </div>
-<%- include('partials/footer') %>
+
+<%- include('./partials/footer') %>
