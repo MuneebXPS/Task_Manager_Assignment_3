@@ -1,28 +1,31 @@
 <%- include('../partials/header') %>
+
+<!-- Main Content -->
 <div class="row">
     <div class="col-md-12">
-        <h1 class="mb-4">All Tasks</h1>
+        <!-- Tasks Header -->
+        <div class="tasks-header d-flex justify-content-between align-items-center">
+            <h1 class="mb-4">All Tasks</h1>
 
-        <div class="d-flex mb-3">
-            <form action="/tasks" method="GET" class="d-flex w-100">
-                <select name="priority" class="form-select me-2" onchange="this.form.submit()">
+            <!-- Filter Section -->
+            <form action="/tasks" method="GET" class="filter-container">
+                <select name="priority" class="form-select">
                     <option value="">Filter by Priority</option>
                     <option value="Low" <%= query.priority === 'Low' ? 'selected' : '' %>>Low</option>
                     <option value="Medium" <%= query.priority === 'Medium' ? 'selected' : '' %>>Medium</option>
                     <option value="High" <%= query.priority === 'High' ? 'selected' : '' %>>High</option>
                 </select>
-
-                <select name="status" class="form-select me-2" onchange="this.form.submit()">
+                <select name="status" class="form-select">
                     <option value="">Filter by Status</option>
                     <option value="To-Do" <%= query.status === 'To-Do' ? 'selected' : '' %>>To-Do</option>
                     <option value="In-Progress" <%= query.status === 'In-Progress' ? 'selected' : '' %>>In-Progress</option>
                     <option value="Completed" <%= query.status === 'Completed' ? 'selected' : '' %>>Completed</option>
                 </select>
-
                 <button class="btn btn-primary" type="submit">Apply Filters</button>
             </form>
         </div>
 
+        <!-- Tasks Table -->
         <table class="table table-striped">
             <thead class="thead-dark">
                 <tr>
@@ -67,6 +70,7 @@
             </tbody>
         </table>
 
+        <!-- Add New Task Button -->
         <div class="add-task-container">
             <a href="/tasks/new" class="btn btn-success">Add New Task</a>
         </div>

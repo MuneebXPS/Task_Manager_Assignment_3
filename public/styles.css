@@ -1,159 +1,216 @@
-/* General Reset */
+/*General Reset - Reset margin, padding, and basic styles for body and html*/
 body, html {
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
+    margin: 0; /*Remove default margin*/
+    padding: 0; /*Remove default padding*/
+    font-family: 'Poppins', sans-serif; /*Use Poppins font*/
+    height: 100%; /*Ensure the body takes full height*/
+    display: flex; /*Use flexbox for layout*/
+    flex-direction: column; /*Arrange children vertically*/
 }
 
-/* Header Styles */
+/*Header Styles - Styling for the navigation bar*/
 header nav {
-    background-color: #2c3e50;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 10px 20px;
+    background-color: #2c3e50; /*Dark blue background*/
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /*Subtle shadow for depth*/
+    padding: 10px 20px; /*Space inside the nav bar*/
 }
 
 header nav .navbar-brand {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #ecf0f1;
+    font-size: 1.5rem; /*Larger font size for brand name*/
+    font-weight: 700; /*Bold font weight*/
+    color: #ecf0f1; /*Light gray color*/
 }
 
 header nav .navbar-nav .nav-link {
-    color: #ecf0f1;
-    font-size: 1rem;
-    margin-right: 15px;
-    transition: color 0.3s ease;
+    color: #ecf0f1; /*Light gray text color*/
+    font-size: 1rem; /*Standard font size for links*/
+    margin-right: 15px; /*Space between links*/
+    transition: color 0.3s ease; /*Smooth hover transition*/
 }
 
 header nav .navbar-nav .nav-link:hover {
-    color: #1abc9c;
+    color: #1abc9c; /*Highlight link with teal color on hover*/
 }
 
-/* Footer Styles */
+/*Footer Styles - Styling for footer at the bottom*/
 footer {
-    background-color: #2c3e50;
-    color: #ecf0f1;
-    text-align: center;
-    padding: 10px;
-    margin-top: auto;
-    font-size: 0.9rem;
-    border-top: 2px solid #1abc9c;
+    background-color: #2c3e50; /*Dark blue background*/
+    color: #ecf0f1; /*Light gray text*/
+    text-align: center; /*Center align text*/
+    padding: 10px; /*Space inside footer*/
+    margin-top: auto; /*Push footer to the bottom*/
+    font-size: 0.9rem; /*Smaller text size*/
+    border-top: 2px solid #1abc9c; /*Add a teal border at the top*/
 }
 
-/* Button Styles */
-.btn {
-    display: inline-block;
-    background: linear-gradient(135deg, #1abc9c, #16a085);
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 8px;
-    text-transform: uppercase;
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s, box-shadow 0.2s ease-in-out;
-}
-
-.btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-}
-
-/* Main Content Styling */
+/*Main Content Styling - General styles for main content container*/
 .container {
-    padding: 20px;
-    text-align: center;
+    padding: 20px; /*Add space inside the container*/
+    text-align: center; /*Center text alignment*/
+}
+
+/*H1 Styling - Styling for the page title*/
+.parent-container {
+    display: flex; /*Use flexbox for layout*/
+    align-items: center; /*Center items vertically*/
+    justify-content: flex-start; /*Align items to the left*/
 }
 
 h1 {
-    font-size: 2.5rem;
-    color: #34495e;
+    font-size: 2.5rem; /*Large font size for headings*/
+    color: #34495e; /*Dark gray text color*/
+    margin-top: -2px; /*Slight adjustment to reduce top space*/
+    text-align: left; /*Keep text aligned to the left*/
 }
 
-p {
-    color: #7f8c8d;
+/*Filter Container Styling - Styling for the filter dropdown and button*/
+.filter-container {
+    display: flex; /*Use flexbox for layout*/
+    justify-content: center; /*Center items horizontally*/
+    align-items: center; /*Align items vertically*/
+    gap: 15px; /*Space between filters and button*/
+    margin: 0; /*Remove margin*/
+    padding: 0; /*Remove padding*/
+    position: relative; /*Relative positioning for adjustment*/
+    top: -90px; /*Move filters higher into the header*/
+    flex-wrap: nowrap; /*Prevent items from wrapping to a new line*/
+    left: -30px; /*Adjust horizontal position slightly*/
+    overflow-x: auto; /*Allow horizontal scrolling if needed*/
 }
 
-/* Table Styling */
+.filter-container select {
+    width: 200px; /*Fixed width for dropdowns*/
+    padding: 8px 12px; /*Add padding inside the dropdown*/
+    border: 1px solid #bdc3c7; /*Light gray border*/
+    border-radius: 8px; /*Rounded corners*/
+    background-color: #ecf0f1; /*Light background color*/
+    color: #34495e; /*Dark text color*/
+    font-size: 1rem; /*Standard font size*/
+    transition: box-shadow 0.2s ease-in-out; /*Smooth focus transition*/
+}
+
+.filter-container select:focus {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /*Add shadow on focus*/
+    outline: none; /*Remove default outline*/
+}
+
+.filter-container .btn-primary {
+    padding: 10px 20px; /*Space inside button*/
+    border-radius: 8px; /*Rounded corners*/
+    font-size: 1rem; /*Standard font size*/
+    text-transform: uppercase; /*Uppercase text*/
+    font-weight: bold; /*Bold text*/
+    background: linear-gradient(135deg, #1abc9c, #16a085); /*Gradient background*/
+    color: white; /*White text color*/
+    border: none; /*Remove border*/
+    cursor: pointer; /*Pointer cursor on hover*/
+    transition: box-shadow 0.3s ease; /*Smooth hover transition*/
+    white-space: nowrap; /*Prevent text wrapping*/
+}
+
+.filter-container .btn-primary:hover {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /*Add shadow on hover*/
+    transform: translateY(-2px); /*Slight lift effect*/
+}
+
+/*Table Styling - Styling for task table*/
 table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
+    width: 100%; /*Full width table*/
+    border-collapse: collapse; /*Remove space between borders*/
+    margin-top: 0px; /*Reduce space above the table*/
 }
 
 table thead {
-    background-color: #1abc9c;
-    color: white;
-    text-transform: uppercase;
-    font-size: 0.9rem;
+    background-color: #1abc9c; /*Teal background*/
+    color: white; /*White text color*/
+    text-transform: uppercase; /*Uppercase text*/
+    font-size: 0.9rem; /*Slightly smaller text*/
 }
 
 table tbody tr:nth-child(even) {
-    background-color: #f9f9f9;
+    background-color: #f9f9f9; /*Light gray for even rows*/
 }
 
 table tbody tr:hover {
-    background-color: #ecf0f1;
+    background-color: #ecf0f1; /*Lighter gray on hover*/
 }
 
 table td, table th {
-    padding: 10px;
-    text-align: center;
+    padding: 10px; /*Add space inside cells*/
+    text-align: center; /*Center-align text*/
 }
 
-/* Dropdown Styling */
-form select {
-    background: #ecf0f1;
-    border: 1px solid #bdc3c7;
-    padding: 5px;
-    border-radius: 5px;
-    color: #34495e;
+/*Button Styling in Table*/
+table td .btn {
+    margin: 5px 0; /*Space between buttons*/
+    padding: 8px 16px; /*Add padding*/
+    width: 90px; /*Fixed width*/
+    height: 40px; /*Fixed height*/
+    text-align: center; /*Center-align text*/
+    line-height: 1.5; /*Adjust line height*/
+    display: inline-block; /*Keep buttons inline*/
+    vertical-align: middle; /*Align buttons vertically*/
 }
 
-/* Custom Hover Animations for Links */
+table td {
+    text-align: center; /*Center-align cell text*/
+    vertical-align: middle; /*Align text vertically*/
+}
+
+/*Add Task Button Styling*/
+.add-task-container {
+    display: flex; /*Use flexbox for layout*/
+    justify-content: center; /*Center the button*/
+    margin-top: 20px; /*Space above the button*/
+}
+
+/*General Button Styling*/
+.btn {
+    display: inline-block; /*Inline-block for buttons*/
+    background: linear-gradient(135deg, #1abc9c, #16a085); /*Gradient background*/
+    color: white; /*White text*/
+    padding: 10px 20px; /*Add padding*/
+    border: none; /*Remove border*/
+    border-radius: 8px; /*Rounded corners*/
+    text-transform: uppercase; /*Uppercase text*/
+    font-weight: bold; /*Bold text*/
+    cursor: pointer; /*Pointer cursor*/
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /*Subtle shadow*/
+    transition: transform 0.2s, box-shadow 0.2s ease-in-out; /*Smooth hover effect*/
+}
+
+.btn:hover {
+    transform: translateY(-2px); /*Slight lift on hover*/
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /*Stronger shadow on hover*/
+}
+
+/*Link Styling*/
 a {
-    color: #16a085;
-    text-decoration: none;
-    transition: color 0.3s ease-in-out;
+    color: #16a085; /*Teal color for links*/
+    text-decoration: none; /*Remove underline*/
+    transition: color 0.3s ease-in-out; /*Smooth color change*/
 }
 
 a:hover {
-    color: #1abc9c;
+    color: #1abc9c; /*Lighter teal on hover*/
 }
 
-/* Adjust Actions Buttons for Alignment and Consistency */
-table td .btn {
-    margin: 5px 0; /* Add slight vertical spacing between buttons */
-    padding: 8px 16px; /* Same padding for consistency */
-    width: 90px; /* Uniform width for both buttons */
-    height: 40px; /* Uniform height */
-    text-align: center;
-    line-height: 1.5;
-    display: inline-block;
-    vertical-align: middle;
-}
-
-/* Align buttons centrally in the Actions column */
-table td {
-    text-align: center;
-    vertical-align: middle;
-}
-
-/* Ensure buttons wrap properly on smaller screens */
+/*Responsive Adjustments - Adjust layout for smaller screens*/
 @media (max-width: 768px) {
-    table td .btn {
-        display: block; /* Stack buttons vertically when screen is smaller */
-        margin: 5px auto; /* Center buttons and add vertical spacing */
+    .filter-container {
+        flex-wrap: nowrap; /*Keep filters in a row*/
+        gap: 10px; /*Adjust spacing*/
+        top: 0px; /*Lower the filters*/
     }
-}
 
-/* Centering the Add New Task Button */
-.add-task-container {
-    display: flex;
-    justify-content: center; /* Centers the button horizontally */
-    margin-top: 20px; /* Adds spacing between the table and the button */
+    .filter-container select,
+    .filter-container .btn-primary {
+        flex-shrink: 0; /*Prevent shrinking*/
+        width: auto; /*Allow resizing*/
+    }
+
+    table td .btn {
+        display: block; /*Stack buttons vertically*/
+        margin: 5px auto; /*Center buttons*/
+    }
 }
