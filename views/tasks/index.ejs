@@ -55,16 +55,21 @@
                         </td>
                         <td><%= task.dueDate ? task.dueDate.toISOString().substring(0, 10) : 'N/A' %></td>
                         <td>
-                            <form action="/tasks/<%= task._id %>?_method=DELETE" method="POST" style="display:inline;">
-                                <button type="submit" class="btn btn-sm btn-danger">Delete</button>
-                            </form>
+                            <div class="action-buttons">
+                                <a href="/tasks/<%= task._id %>/edit" class="btn btn-sm btn-primary">Edit</a>
+                                <form action="/tasks/<%= task._id %>?_method=DELETE" method="POST" style="display:inline;">
+                                    <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                                </form>
+                            </div>
                         </td>
                     </tr>
                 <% }) %>
             </tbody>
         </table>
 
-        <a href="/tasks/new" class="btn btn-success">Add New Task</a>
+        <div class="add-task-container">
+            <a href="/tasks/new" class="btn btn-success">Add New Task</a>
+        </div>
     </div>
 </div>
 <%- include('../partials/footer') %>
