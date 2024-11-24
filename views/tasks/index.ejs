@@ -1,15 +1,34 @@
 <%- include('../partials/header') %>
-<h1>All Tasks</h1>
-<a href="/tasks/new">Add New Task</a>
-<ul>
-    <% tasks.forEach(task => { %>
-        <li>
-            <strong><%= task.title %></strong> - <%= task.status %> 
-            <a href="/tasks/<%= task._id %>/edit">Edit</a>
-            <form action="/tasks/<%= task._id %>?_method=DELETE" method="POST" style="display: inline;">
-                <button type="submit">Delete</button>
-            </form>
-        </li>
-    <% }) %>
-</ul>
+<div class="container">
+    <h1>All Tasks</h1>
+    <div class="filter-options mb-3">
+        <form action="/tasks" method="GET" class="form-inline">
+            <select name="priority" onchange="this.form.submit()" class="form-control">
+                <option value="">All Priorities</option>
+                <option value="Low" <%= query.priority === 'Low' ? 'selected' : '' %>>Low</option>
+                <option value="Medium" <%= query.priority === 'Medium' ? 'selected' : '' %>>Medium</option>
+                <option value="High" <%= query.priority === 'High' ? 'selected' : '' %>>High</option>
+            </select>
+
+            <select name="status" onchange="this.form.submit()" class="form-control ml-2">
+                <option value="">All Statuses</option>
+                <option value="To-Do" <%= query.status === 'To-Do' ? 'selected' : '' %>>To-Do</option>
+                <option value="In-Progress" <%= query.status === 'In-Progress' ? 'selected' : '' %>>In-Progress</option>
+                <option value="Completed" <%= query.status === 'Completed' ? 'selected' : '' %>>Completed</option>
+            </select>
+        </form>
+    </div>
+
+    <ul class="list-group">
+        <% tasks.forEach(task => { %>
+            <li class="list-group-item">
+                <strong><%= task.title %></strong> - <%= task.priority %> - <%= task.status %>
+                <a href="/tasks/<%= task._id %>/edit" class="btn btn-sm btn-primary">Edit</a>
+                <form action="/tasks/<%= task._id %>?_method=DELETE" method="POST" style="display: inline;">
+                    <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                </form>
+            </li>
+        <% }) %>
+    </ul>
+</div>
 <%- include('../partials/footer') %>
