@@ -1,62 +1,61 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;700&display=swap'); /*Import Comfortaa font family*/
 
-/*General Reset*/
+/*General Body*/
 body, html {
+    font-family: 'Comfortaa', sans-serif; /*Use Comfortaa font*/
     margin: 0; /*Remove default margin*/
     padding: 0; /*Remove default padding*/
-    font-family: 'Comfortaa', sans-serif; /*Use Comfortaa font*/
     height: 100%; /*Ensure body takes up full height*/
     display: flex; /*Use flexbox for layout*/
     flex-direction: column; /*Arrange children vertically*/
     background-color: rgb(215, 207, 195);
+    overflow-x: hidden; /*Prevent horizontal scrolling*/
+    scroll-behavior: smooth; /*Enables smooth scrolling for vertical navigation*/
 }
 
 /*Header Styles*/
 header nav {
-    background-color: #8B4513; /*Warm brown background*/
-    padding: 10px 20px; /*Inner padding for the navigation bar*/
+    background-color: #8b4513; /*brown background*/
+    padding: 10px 20px; /*padding for the navigation bar*/
 }
-
 header nav .navbar-brand {
-    font-size: 1.5rem; /*Larger font size for branding*/
-    font-weight: 700; /*Bold font weight*/
-    color: #FDF5E6; /*Off-white text color*/
+    font-size: 1.5rem; /*Larger font*/
+    font-weight: 700; /*Bold font*/
+    color: #FDF5E6; /*white text color*/
 }
-
 header nav .navbar-nav .nav-link {
-    color: #FDF5E6; /*Off-white text color*/
-    font-size: 1rem; /*Standard font size for links*/
-    margin-right: 15px; /*Add spacing between links*/
+    color: #FDF5E6; /*white text color*/
+    font-size: 1rem; /*font size for links*/
+    margin-right: 15px; /*spacing between links*/
     transition: color 0.3s ease; /*Smooth hover effect*/
 }
-
 header nav .navbar-nav .nav-link:hover {
-    color: #FF8C00; /*Change link color to burnt orange on hover*/
+    color: #FF8C00; /*Change link color to orange on hover*/
 }
 
 /*Footer Styles*/
 footer {
-    background-color: #8B4513; /*Warm brown background*/
-    color: #FDF5E6; /*Off-white text color*/
-    text-align: center; /*Center-align footer content*/
-    padding: 10px; /*Inner padding for footer*/
-    margin-top: auto; /*Push footer to bottom*/
+    background-color: #8B4513; /*brown background*/
+    color: #FDF5E6; /*white text color*/
+    text-align: center; /*Center footer content*/
+    padding: 10px; /*padding for footer*/
+    margin-top: auto; /*footer to bottom*/
     font-size: 0.9rem; /*Slightly smaller text*/
-    border-top: 2px solid #FF8C00; /*Add burnt orange border*/
+    border-top: 2px solid #FF8C00; /*Add orange border*/
 }
 
 /*Main Content Styling*/
 .container {
-    padding: 20px; /*Add inner padding to content*/
-    text-align: center; /*Center-align content*/
+    padding: 20px; /*inner padding to content*/
+    text-align: center; /*Center align content*/
 }
 
 /*H1 Styling*/
 h1 {
     font-size: 2.5rem; /*Large font size for headings*/
-    color: #4A2C2A; /*Deep reddish-brown text color*/
+    color: #4A2C2A; /*Deep reddish text color*/
     margin-top: -2px; /*Adjust top margin slightly*/
-    text-align: center; /*Center-align text*/
+    text-align: center; /*Center align text*/
 }
 
 /*Filter Container*/
@@ -65,13 +64,11 @@ h1 {
     justify-content: center; /*Center content horizontally*/
     align-items: center; /*Align items vertically*/
     gap: 15px; /*Add spacing between items*/
-    position: relative; /*Position relative for adjustment*/
-    top: -90px; /*Move the container upward*/
+    position: relative; /*Position relative*/
+    top: -80px; /*Move the container upward*/
     flex-wrap: nowrap; /*Prevent wrapping of items*/
-    left: -30px; /*Adjust horizontal positioning*/
-    overflow-x: auto; /*Enable horizontal scrolling if necessary*/
+    left: 400px; /*Adjust horizontal positioning*/
 }
-
 .filter-container select {
     width: 200px; /*Fixed width for dropdowns*/
     padding: 8px 12px; /*Inner padding for dropdowns*/
@@ -81,7 +78,6 @@ h1 {
     color: #4A2C2A; /*Deep reddish-brown text color*/
     font-size: 1rem; /*Standard font size*/
 }
-
 .filter-container select:focus {
     outline: none; /*Remove default focus outline*/
 }
@@ -93,7 +89,7 @@ h1 {
     font-size: 1rem; /*Standard font size*/
     text-transform: uppercase; /*Uppercase button text*/
     font-weight: bold; /*Bold text*/
-    background: linear-gradient(135deg, #FF8C00, #CD853F); /*Gradient from burnt orange to Peru*/
+    background: linear-gradient(135deg, #FF8C00, #CD853F); /*Gradient from orange to light orange*/
     color: white; /*White text color*/
     border: none; /*Remove default border*/
     cursor: pointer; /*Pointer cursor on hover*/
@@ -105,48 +101,42 @@ table {
     border-collapse: collapse; /*Collapse table borders*/
     margin-top: 0px; /*Remove top margin*/
 }
-
 table thead {
-    background-color: #CD853F; /*Peru background*/
+    background-color: #CD853F; /*light orange background*/
     color: white; /*White text color*/
     text-transform: uppercase; /*Uppercase text*/
     font-size: 0.9rem; /*Slightly smaller font size*/
 }
-
 table tbody tr:nth-child(even) {
     background-color: #FDF5E6; /*Off white orangish for even rows*/
 }
-
 table tbody tr:hover {
-    background-color: #FFE4C4; /*Bisque on hover*/
+    background-color: #FFE4C4; /*Color change on hover*/
 }
-
 table td, table th {
     padding: 10px; /*Add padding to cells*/
-    text-align: center; /*Center-align text*/
+    text-align: center; /*Center align text*/
 }
 
 /*Table Buttons*/
 table td .btn {
-    margin: 5px 0; /*Vertical margin for buttons*/
-    padding: 8px 16px; /*Inner padding*/
-    width: 90px; /*Fixed button width*/
-    height: 40px; /*Fixed button height*/
-    text-align: center; /*Center-align button text*/
-    line-height: 1.5; /*Adjust line height*/
-    display: inline-block; /*Inline-block for layout*/
-    vertical-align: middle; /*Align vertically*/
-    background: linear-gradient(135deg, #FF8C00, #CD853F); /*Gradient from burnt orange to Peru*/
-    color: white; /*White text color*/
+    margin: 5px 0;
+    padding: 8px 16px; /*Keep button padding consistent*/
+    width: 90px; /*Button width*/
+    height: 40px; /*Button height*/
+    font-size: 0.9rem; /*Adjust text size*/
+    background: linear-gradient(135deg, #FF8C00, #CD853F); /*Button background*/
+    color: white; /*Button text color*/
     border-radius: 8px; /*Rounded corners*/
-    border: none; /*Remove default border*/
-    cursor: pointer; /*Pointer cursor on hover*/
+    border: none; /*Remove border*/
+    cursor: pointer; /*Pointer on hover*/
 }
+
 
 /*Add Task Button*/
 .add-task-container {
     display: flex; /*Use flexbox layout*/
-    justify-content: center; /*Center-align button*/
+    justify-content: center; /*Center align button*/
     margin-top: 20px; /*Add space above button*/
 }
 
@@ -164,37 +154,31 @@ table td .btn {
 
 /*Links*/
 a {
-    color: #CD853F; /*Peru text color*/
+    color: #CD853F; /*light orange text color*/
     text-decoration: none; /*Remove underline*/
     transition: color 0.3s ease-in-out; /*Smooth color transition*/
 }
-
 a:hover {
     color: #FF8C00; /*Change to burnt orange on hover*/
 }
-
 /*Home Page*/
 .home-container {
-    text-align: center; /*Center-align content*/
+    text-align: center; /*Center align content*/
     padding: 50px 20px; /*Add padding around content*/
 }
-
 .welcome-text {
     margin-bottom: 50px; /*Add space below welcome text*/
 }
-
 .welcome-text h1 {
     font-size: 3rem; /*Large font size for heading*/
     color: #4A2C2A; /*Deep reddish-brown text color*/
     margin-bottom: 15px; /*Space below heading*/
 }
-
 .welcome-text p {
     font-size: 1.2rem; /*Slightly larger text size*/
     color: #8B5A2B; /*SaddleBrown text color*/
     margin-bottom: 30px; /*Add space below paragraph*/
 }
-
 .welcome-text .btn {
     padding: 15px 30px; /*Larger button size*/
     font-size: 1.2rem; /*Larger text size for button*/
@@ -208,43 +192,37 @@ a:hover {
 .features-section {
     margin-top: 50px; /*Add space above features section*/
 }
-
 .features-section h2 {
     font-size: 2rem; /*Medium font size*/
     color: #4A2C2A; /*Deep reddish-brown text color*/
     margin-bottom: 30px; /*Add space below heading*/
 }
-
 .features {
     display: flex; /*Flexbox layout for features*/
-    justify-content: center; /*Center-align features*/
+    justify-content: center; /*Center align features*/
     gap: 30px; /*Add spacing between features*/
     flex-wrap: wrap; /*Wrap features on smaller screens*/
 }
-
 .feature-card {
-    background: #FDF5E6; /*Off-white background*/
+    background: #FDF5E6; /*off white background*/
     padding: 20px; /*Inner padding*/
     border-radius: 10px; /*Rounded corners*/
     width: 250px; /*Fixed card width*/
-    text-align: center; /*Center-align content*/
+    text-align: center; /*Center align content*/
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /*Subtle shadow for depth*/
 }
-
 .feature-card img {
     width: 50px; /*Set fixed width for images*/
     margin-bottom: 20px; /*Add space below image*/
 }
-
 .feature-card h3 {
     font-size: 1.5rem; /*Medium font size*/
     color: #4A2C2A; /*Deep reddish-brown text color*/
     margin-bottom: 10px; /*Add space below heading*/
 }
-
 .feature-card p {
     font-size: 1rem; /*Standard text size*/
-    color: #8B5A2B; /*SaddleBrown text color*/
+    color: #8B5A2B; /*text color*/
 }
 
 /*Responsive Adjustments*/
@@ -253,14 +231,13 @@ a:hover {
         flex-wrap: nowrap; /*Prevent wrapping*/
         gap: 10px; /*Adjust spacing*/
         top: 0px; /*Adjust vertical position*/
+        left: 15px
     }
-
     .filter-container select,
     .filter-container .btn-primary {
         flex-shrink: 0; /*Prevent shrinking*/
         width: auto; /*Allow resizing*/
     }
-
     table td .btn {
         display: block; /*Stack buttons vertically*/
         margin: 5px auto; /*Center buttons*/

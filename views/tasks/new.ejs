@@ -1,39 +1,41 @@
-<%- include('../partials/header') %>
-<div class="row">
-    <div class="col-md-6 offset-md-3">
-        <h1>Add New Task</h1>
-        <form action="/tasks" method="POST">
-            <div class="mb-3">
-                <label for="title" class="form-label">Title</label>
-                <input type="text" name="title" id="title" class="form-control" required>
+<%- include('../partials/header') %> <!--Include the header partial-->
+
+<div class="row"> <!--Start a row layout-->
+    <div class="col-md-6 offset-md-3"> <!--Center the form with column offset-->
+        <h1>Add New Task</h1> <!--Form heading-->
+        <form action="/tasks" method="POST"> <!--Form to create a new task-->
+            <div class="mb-3"> <!--Input group for task title-->
+                <label for="title" class="form-label">Title</label> <!--Title label-->
+                <input type="text" name="title" id="title" class="form-control" required> <!--Title input-->
             </div>
-            <div class="mb-3">
-                <label for="description" class="form-label">Description</label>
-                <textarea name="description" id="description" class="form-control"></textarea>
+            <div class="mb-3"> <!--Input group for description-->
+                <label for="description" class="form-label">Description</label> <!--Description label-->
+                <textarea name="description" id="description" class="form-control"></textarea> <!--Description input-->
             </div>
-            <div class="mb-3">
-                <label for="dueDate" class="form-label">Due Date</label>
-                <input type="date" name="dueDate" id="dueDate" class="form-control">
+            <div class="mb-3"> <!--Input group for due date-->
+                <label for="dueDate" class="form-label">Due Date</label> <!--Due date label-->
+                <input type="date" name="dueDate" id="dueDate" class="form-control"> <!--Due date input-->
             </div>
-            <div class="mb-3">
-                <label for="priority" class="form-label">Priority</label>
-                <select name="priority" id="priority" class="form-select">
-                    <option value="Low">Low</option>
-                    <option value="Medium">Medium</option>
-                    <option value="High">High</option>
+            <div class="mb-3"> <!--Input group for priority-->
+                <label for="priority" class="form-label">Priority</label> <!--Priority label-->
+                <select name="priority" id="priority" class="form-select"> <!--Priority dropdown-->
+                    <option value="Low">Low</option> <!--Low priority-->
+                    <option value="Medium">Medium</option> <!--Medium priority-->
+                    <option value="High">High</option> <!--High priority-->
                 </select>
             </div>
-            <div class="mb-3">
-                <label for="status" class="form-label">Status</label>
-                <select name="status" id="status" class="form-select">
-                    <option value="To-Do">To-Do</option>
-                    <option value="In-Progress">In-Progress</option>
-                    <option value="Completed">Completed</option>
+            <div class="mb-3"> <!--Input group for status-->
+                <label for="status" class="form-label">Status</label> <!--Status label-->
+                <select name="status" id="status" class="form-select"> <!--Status dropdown-->
+                    <option value="To-Do">To-Do</option> <!--To-Do status-->
+                    <option value="In-Progress">In-Progress</option> <!--In-Progress status-->
+                    <option value="Completed">Completed</option> <!--Completed status-->
                 </select>
             </div>
-            <button type="submit" class="btn btn-primary">Add Task</button>
-            <a href="/tasks" class="btn btn-secondary">Cancel</a>
+            <button type="submit" class="btn btn-primary">Add Task</button> <!--Submit button-->
+            <a href="/tasks" class="btn btn-secondary">Cancel</a> <!--Cancel button-->
         </form>
     </div>
 </div>
-<%- include('../partials/footer') %>
+
+<%- include('../partials/footer') %> <!--Include the footer partial-->
