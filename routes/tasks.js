@@ -74,4 +74,18 @@ router.delete('/:id', async (req, res) => {
     }
 });
 
+// POST /tasks/:id/update - Update a specific field dynamically
+router.post('/:id/update', async (req, res) => {
+    const { field, value } = req.body;
+    try {
+        const update = {};
+        update[field] = value; // Dynamically set the field to be updated
+        await Task.findByIdAndUpdate(req.params.id, update);
+        res.status(200).send({ message: 'Task updated successfully' });
+    } catch (err) {
+        console.error('Error updating task:', err);
+        res.status(500).send({ message: 'Failed to update task.' });
+    }
+});
+
 module.exports = router;

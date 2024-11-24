@@ -39,11 +39,22 @@
                     <tr>
                         <td><%= task.title %></td>
                         <td><%= task.description || 'N/A' %></td>
-                        <td><%= task.priority %></td>
-                        <td><%= task.status %></td>
+                        <td>
+                            <select class="form-select" onchange="updateTask('<%= task._id %>', 'priority', this.value)">
+                                <option value="Low" <%= task.priority === 'Low' ? 'selected' : '' %>>Low</option>
+                                <option value="Medium" <%= task.priority === 'Medium' ? 'selected' : '' %>>Medium</option>
+                                <option value="High" <%= task.priority === 'High' ? 'selected' : '' %>>High</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select class="form-select" onchange="updateTask('<%= task._id %>', 'status', this.value)">
+                                <option value="To-Do" <%= task.status === 'To-Do' ? 'selected' : '' %>>To-Do</option>
+                                <option value="In-Progress" <%= task.status === 'In-Progress' ? 'selected' : '' %>>In-Progress</option>
+                                <option value="Completed" <%= task.status === 'Completed' ? 'selected' : '' %>>Completed</option>
+                            </select>
+                        </td>
                         <td><%= task.dueDate ? task.dueDate.toISOString().substring(0, 10) : 'N/A' %></td>
                         <td>
-                            <a href="/tasks/<%= task._id %>/edit" class="btn btn-sm btn-warning">Edit</a>
                             <form action="/tasks/<%= task._id %>?_method=DELETE" method="POST" style="display:inline;">
                                 <button type="submit" class="btn btn-sm btn-danger">Delete</button>
                             </form>
@@ -57,3 +68,25 @@
     </div>
 </div>
 <%- include('../partials/footer') %>
+
+<script>
+    async function updateTask(taskId, field, value) {
+        try {
+            const response = await fetch(`/tasks/${taskId}/update`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ field, value }),
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to update task');
+            }
+            console.log('Task updated successfully');
+        } catch (error) {
+            console.error('Error:', error);
+            alert('Failed to update the task. Please try again.');
+        }
+    }
+</script>
