@@ -1,34 +1,59 @@
 <%- include('../partials/header') %>
-<div class="container">
-    <h1>All Tasks</h1>
-    <div class="filter-options mb-3">
-        <form action="/tasks" method="GET" class="form-inline">
-            <select name="priority" onchange="this.form.submit()" class="form-control">
-                <option value="">All Priorities</option>
-                <option value="Low" <%= query.priority === 'Low' ? 'selected' : '' %>>Low</option>
-                <option value="Medium" <%= query.priority === 'Medium' ? 'selected' : '' %>>Medium</option>
-                <option value="High" <%= query.priority === 'High' ? 'selected' : '' %>>High</option>
-            </select>
+<div class="row">
+    <div class="col-md-12">
+        <h1 class="mb-4">All Tasks</h1>
 
-            <select name="status" onchange="this.form.submit()" class="form-control ml-2">
-                <option value="">All Statuses</option>
-                <option value="To-Do" <%= query.status === 'To-Do' ? 'selected' : '' %>>To-Do</option>
-                <option value="In-Progress" <%= query.status === 'In-Progress' ? 'selected' : '' %>>In-Progress</option>
-                <option value="Completed" <%= query.status === 'Completed' ? 'selected' : '' %>>Completed</option>
-            </select>
-        </form>
+        <div class="d-flex mb-3">
+            <form action="/tasks" method="GET" class="d-flex w-100">
+                <select name="priority" class="form-select me-2" onchange="this.form.submit()">
+                    <option value="">Filter by Priority</option>
+                    <option value="Low" <%= query.priority === 'Low' ? 'selected' : '' %>>Low</option>
+                    <option value="Medium" <%= query.priority === 'Medium' ? 'selected' : '' %>>Medium</option>
+                    <option value="High" <%= query.priority === 'High' ? 'selected' : '' %>>High</option>
+                </select>
+
+                <select name="status" class="form-select me-2" onchange="this.form.submit()">
+                    <option value="">Filter by Status</option>
+                    <option value="To-Do" <%= query.status === 'To-Do' ? 'selected' : '' %>>To-Do</option>
+                    <option value="In-Progress" <%= query.status === 'In-Progress' ? 'selected' : '' %>>In-Progress</option>
+                    <option value="Completed" <%= query.status === 'Completed' ? 'selected' : '' %>>Completed</option>
+                </select>
+
+                <button class="btn btn-primary" type="submit">Apply Filters</button>
+            </form>
+        </div>
+
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Priority</th>
+                    <th>Status</th>
+                    <th>Due Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% tasks.forEach(task => { %>
+                    <tr>
+                        <td><%= task.title %></td>
+                        <td><%= task.description || 'N/A' %></td>
+                        <td><%= task.priority %></td>
+                        <td><%= task.status %></td>
+                        <td><%= task.dueDate ? task.dueDate.toISOString().substring(0, 10) : 'N/A' %></td>
+                        <td>
+                            <a href="/tasks/<%= task._id %>/edit" class="btn btn-sm btn-warning">Edit</a>
+                            <form action="/tasks/<%= task._id %>?_method=DELETE" method="POST" style="display:inline;">
+                                <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+
+        <a href="/tasks/new" class="btn btn-success">Add New Task</a>
     </div>
-
-    <ul class="list-group">
-        <% tasks.forEach(task => { %>
-            <li class="list-group-item">
-                <strong><%= task.title %></strong> - <%= task.priority %> - <%= task.status %>
-                <a href="/tasks/<%= task._id %>/edit" class="btn btn-sm btn-primary">Edit</a>
-                <form action="/tasks/<%= task._id %>?_method=DELETE" method="POST" style="display: inline;">
-                    <button type="submit" class="btn btn-sm btn-danger">Delete</button>
-                </form>
-            </li>
-        <% }) %>
-    </ul>
 </div>
 <%- include('../partials/footer') %>
